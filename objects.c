@@ -29,9 +29,7 @@
 int token;
 
  
-/*
-struct Object
-=======
+
 struct UserInventory
 
 
@@ -43,9 +41,6 @@ struct UserInventory
 
 };
 
-
-typedef struct Object Object;
-*/
 
 typedef struct UserInventory UserInventory;
 
@@ -154,7 +149,7 @@ int UserInventory_Update(int token, UserInventory *arr_obj)
 */
 
  
-
+/*
 int UserInventory_List(UserInventory *arr_obj)
 
 {
@@ -165,5 +160,5 @@ int UserInventory_List(UserInventory *arr_obj)
 
   for(index = 0; index < 3; index++)
 
-    printf("Token: %d has a value of: %s\n", arr_obj[0].Key[index], arr_obj[0].Str[index]);
-
+    strncpy("Token: %d has a value of: %s\n", arr_obj[0].Key[index], arr_obj[0].Str[index]);
+*/
