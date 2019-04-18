@@ -1,18 +1,39 @@
+
+/*objects.c, primary author: Jeremy*/
+
+
+
+
 #include <stdio.h>
 
 #include <string.h>
 
+#include "include/userinput.h"
+#include "include/objects.h"
+
+
  
+/*
+#define DOOR_OPEN 1;
 
 #define OPEN 1;
+
 
 #define USE 2;
 
 #define THROW 3;
-
+*/
  
 
+
+int token;
+
+ 
+/*
+struct Object
+=======
 struct UserInventory
+
 
 {
 
@@ -22,12 +43,17 @@ struct UserInventory
 
 };
 
+
+typedef struct Object Object;
+*/
+
 typedef struct UserInventory UserInventory;
 
- 
 
  
 
+ 
+/*
 int main()
 
 {
@@ -52,11 +78,15 @@ int main()
 
   for(index = 0; index < 3; index++)
 
+    arr_obj->Attribute = index;
+
+
     {
 
       arr_obj[0].Key[index] = index;
 
       arr_obj[0].Str[index] = "Missing Necessary Key:Keep Searching";
+
 
  
 
@@ -83,7 +113,7 @@ int main()
   UserInventory_List(arr_obj);
 
 }
-
+*/
  
 
  
@@ -102,8 +132,15 @@ int UserInventory_Update(int token, UserInventory *arr_obj)
 
 {
 
-  arr_obj[0].Str[token] = "Door is Open";
 
+  *arr_obj->Key = token;
+  
+  
+
+ // arr_obj[0].Str[token] = "Door is Open"; Syntax error. Will fix later. 
+
+  
+  return 0;
 }
 
  
@@ -129,3 +166,4 @@ int UserInventory_List(UserInventory *arr_obj)
   for(index = 0; index < 3; index++)
 
     printf("Token: %d has a value of: %s\n", arr_obj[0].Key[index], arr_obj[0].Str[index]);
+

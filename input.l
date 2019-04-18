@@ -13,7 +13,7 @@ typedef struct
 
 #define YYSTYPE langstruct
 #include <string.h>
-#include "input.tab.h"
+#include "include/input.tab.h"
 #define YY_USER_ACTION yylloc.first_line = yylloc.last_line = yylineno;
 
 %}
@@ -44,19 +44,21 @@ WHITE  [ |\t|\f|\r|\v]
 
 (?i:open)								{ strcpy(yylval.str, yytext); return tOPEN; }
 
-(?i:north|up)							{ strcpy(yylval.str, yytext); return tNORTH; }
+(?i:north|up)							{ strcpy(yylval.str, yytext); return tUP; }
 
-(?i:south|down)							{ strcpy(yylval.str, yytext); return tSOUTH; }
+(?i:south|down)							{ strcpy(yylval.str, yytext); return tDOWN; }
 
-(?i:west|left)							{ strcpy(yylval.str, yytext); return tWEST; }
+(?i:west|left)							{ strcpy(yylval.str, yytext); return tLEFT; }
 
-(?i:east|right)							{ strcpy(yylval.str, yytext); return tEAST; }
+(?i:east|right)							{ strcpy(yylval.str, yytext); return tRIGHT; }
 
 (?i:inventory)							{ strcpy(yylval.str, yytext); return tINVENTORY; }
 
 (?i:help|"help me"|"i don't know what i'm doing"|\?|directions)	{ strcpy(yylval.str, yytext); return tHELP; }
 
 (?i:swim) 								{ strcpy(yylval.str, yytext); return tSWIM; }
+
+(?i:quit|exit|"close game"|"abandon duties")	{ strcpy(yylval.str, yytext); return tQUIT; }
 
 {LETTER}+								{ strcpy(yylval.str, yytext); return tMISC_WORD; }
 

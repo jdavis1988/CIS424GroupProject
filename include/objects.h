@@ -8,7 +8,7 @@
 struct Object
 {
   	char Str[STR_SIZE];
-  	int Attribute;
+  	int Key[NUMBER_OF_KEYS];
 };
 typedef struct Object Object;
 //PC
